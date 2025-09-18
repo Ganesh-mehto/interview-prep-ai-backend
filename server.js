@@ -13,7 +13,7 @@ const {generateConceptExplanation,generateInterviewQuestions}=require('./control
 const protect =require('./middlewares/authMiddleware')
 
 app.use(cors({
-    origin: '*', // Adjust this to your frontend URL
+    origin: 'https://interview-prep-ai-frontend-zeta.vercel.app/', // Adjust this to your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
