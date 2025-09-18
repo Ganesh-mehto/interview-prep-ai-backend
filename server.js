@@ -12,26 +12,8 @@ const sessionRoutes = require('./routes/sessionRoutes');
 const {generateConceptExplanation,generateInterviewQuestions}=require('./controllers/aiController')
 const protect =require('./middlewares/authMiddleware')
 
-const allowedOrigins = [
-  "https://interview-prep-ai-frontend-zeta.vercel.app",
-  "https://interview-prep-ai-frontend-nh6btbo3u-ganeshs-projects-f18eb8b3.vercel.app",
-  "http://localhost:5173" // for local dev
-];
-
 app.use(cors({
-     origin: function(origin, callback) {
-    // allow requests with no origin like curl or mobile apps
-    if (!origin) return callback(null, true);
-
-    // remove trailing slash from origin if present
-    const cleanOrigin = origin.replace(/\/$/, "");
-
-    if (allowedOrigins.includes(cleanOrigin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS policy: Origin not allowed"), false);
-    }
-  },
+    origin: 'https://interview-prep-ai-frontend-zeta.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
